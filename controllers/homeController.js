@@ -3,5 +3,6 @@ module.exports.home=(req,res)=>{
 }
 
 module.exports.fav=(req,res)=>{
-    return res.render('fav')
+    let items=st
+    return res.render('fav',{items})
 }
