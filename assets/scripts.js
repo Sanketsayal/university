@@ -1,5 +1,6 @@
 const Uniname=document.getElementById('university_name')
 const btn=document.getElementById('search-btn')
+let local=localStorage.getItem('favs')||[]
 
 btn.addEventListener('click',searchUnivesity)
 
@@ -18,8 +19,15 @@ async function searchUnivesity(){
         <td>${state}</td>
         <td>${item.country}</td>
         <td>${item.web_pages[0]}</td>
-        <td><a href=""> add to favourite</a></td>
+        <td><button onclick="savefac('${item.name}')">Favourite</button></td>
     </tr>`
     })
     body.innerHTML=html
+}
+
+function savefac(name){
+    local.push(name)
+    localStorage.setItem('favs',local)
+
+    console.log(local)
 }
